@@ -2,6 +2,7 @@
 
 namespace NotificationChannels\Clickatell;
 
+use Clickatell\ClickatellException;
 use Illuminate\Notifications\Notification;
 use NotificationChannels\Clickatell\Exceptions\CouldNotSendNotification;
 
@@ -24,7 +25,7 @@ class ClickatellChannel
      * @param mixed $notifiable
      * @param Notification $notification
      *
-     * @throws CouldNotSendNotification
+     * @throws ClickatellException
      */
     public function send($notifiable, Notification $notification)
     {
