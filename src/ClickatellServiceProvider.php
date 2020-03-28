@@ -2,7 +2,7 @@
 
 namespace NotificationChannels\Clickatell;
 
-use Clickatell\Api\ClickatellHttp;
+use Clickatell\Rest as ClickatellRest;
 use Illuminate\Support\ServiceProvider;
 
 class ClickatellServiceProvider extends ServiceProvider
@@ -16,12 +16,9 @@ class ClickatellServiceProvider extends ServiceProvider
             ->needs(ClickatellClient::class)
             ->give(function () {
                 $config = config('services.clickatell');
-
                 return new ClickatellClient(
-                    new ClickatellHttp(
-                        $config['user'],
-                        $config['pass'],
-                        $config['api_id']
+                    new ClickatellRest(
+                        $config['token']
                     )
                 );
             });
