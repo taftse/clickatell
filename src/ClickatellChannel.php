@@ -38,6 +38,6 @@ class ClickatellChannel
             $message = new ClickatellMessage($message);
         }
 
-        $this->clickatell->send($to, $message->getContent());
+        $this->clickatell->send([$to], $message->getContent());
     }
 }
